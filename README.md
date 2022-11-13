@@ -1,56 +1,36 @@
 <h1 align="center"> Gitopia Node Testneti </h1>
 
 
-![image](https://user-images.githubusercontent.com/101149671/201470278-31aa9701-c0be-404c-9b39-a6b481727728.png)
+![image](https://user-images.githubusercontent.com/111747226/201535884-b2faca28-99a3-4508-8d85-375fc67a2d29.png)
 
-
-<h1 align="center"> Selamlar, Nisan ayında beklediğimiz malum proje başladı.. </h1>
 
 ### Notlar:
 
- * Nisan ayında ki olayları unutun, neden? - Testnet 2 gün önce başladı.
- * Ee hocam 2 gün önceyse neden şimdi paylaşıyorsun? Elektiriklerim yoktu ve dün ki yoğunluk + Zeeka'yı biliyorsunuz. ([Exorde](https://github.com/ruesandora/ExordeLabs)'de 3 gün önce başlamıştı)
- * Biz daha önce test tokenleri alıp repolar oluşturmuştuk, o tokenler hala geçerli.
- * Floodu detaylı okumanızı rica ediyorum.
- * Gitopia için nerede sohbet edeceğiz? Sadece bu iki kanalda: [burada](https://t.me/GitopiaTurkish) ve [burada](https://discord.gg/JUtJ6b9F)
- * Gitopia için nerede sohbet edeceğiz? Sadece bu iki kanalda: [burada](https://t.me/GitopiaTurkish) ve [burada](https://discord.gg/JUtJ6b9F)
- * Gitopia için nerede sohbet edeceğiz? Sadece bu iki kanalda: [burada](https://t.me/GitopiaTurkish) ve [burada](https://discord.gg/JUtJ6b9F) 
 
-<h1 align="center"> Hoş geldin sevgili dostum, hoş geldin.. </h1>
+### Aşağıdaki rehberden digital ocean veya google cloud ile sunucuları kiralayıp kurabilirsiniz.
+  
+   # Daha önce Node kurulumu yapmadıysanız buradan sırasıyla adımları takip ederek tüm süreci öğrenebilirsiniz.
+  ## Yeni Başladım Rehberi; [Pusula Finans Labs.](https://www.labs.pusulafinans.com/category/rehber/)
+  ### 1. [Testnet ve Node test kurulum rehberi Bölüm-1](https://www.labs.pusulafinans.com/2022/08/23/testnet-ve-node-kurulum-rehberi/)
+  ### 2. [Yeni Chrome Tarayıcı nasıl açarım?](https://www.labs.pusulafinans.com/2022/08/23/yeni-chrome-tarayici-nasil-acarim/)
+  ### 3. [Ücretsiz Sunucu Kiralama](https://www.labs.pusulafinans.com/2022/08/23/nasil-ucretsiz-sunucu-kiralarim/)
+  ### 4. [Digital Ocean Nasıl Kayıt olurum?](https://www.labs.pusulafinans.com/2022/08/23/digital-oceana-nasil-kayit-olabilirim/)
+  ### 5. [MobaXTerm Terminal Kurulumu](https://www.labs.pusulafinans.com/2022/08/23/mobaxterm-terminal-kurulumu/)
 
-![image](https://user-images.githubusercontent.com/101149671/201470246-0f7a1ee8-eda2-47c1-99f3-8708764fba4a.png)
 
-## Sistem gereksinimleri:
+ * Gitopia için nerede sohbet bu kanalda: [burada](https://t.me/pusulafinans) 
+ * Gitopia discord kanalına girmeyi unutmayın ===> [burada](https://discord.com/invite/aqsKW3hUHD) 
 
- * Ekip sistem gereksinimleri yüksek yazmış, o kadara gerek yok bence.
- * Neden? Pruning'i kapatıp, index'i açacağız.
- * Hocam  benim diskim vs. dolduğunda taşıyabilir miyim başka sunucuya? - ```Evet ```
- * Ben ikisinide yazayım:
+<h1 align="center"> Node Kurulumu için adımları takip etmeyi unutmayın </h1>
 
-* Ekibin söylediği:
 
-```
-4 CPU Cores
-32GB RAM
-1TB of storage
-```
+### Sistem Gereksinimleri 
 
-* Bence:
+|CPU | RAM  | Disk  | 
+|----|------|----------|
+|   4| 8GB  | 200GB    |
 
-```
-4 CPU
-8 RAM
-200 SSD (contabo ise, 400 yapın diski, bedava şu an)
-```
 
-## Eğer sunucunuz yüksekse ve farklı bir node varsa içinde, yanına gitopia kurmak istiyorsanız şu şekilde başlayın:
-
- * Değilse, sıfır sunucuysa buna gerek yok.
-
-```
-apt install screen
-screen -S gitopia
-```
 
 ## Sistem güncellemesi yapıyoruz
 ```
@@ -63,7 +43,7 @@ sudo apt install curl build-essential git wget jq make gcc tmux chrony -y
 
 ## Validator adınızı " " içinde yazın
 ```
-MONIKER="RuesValidator"
+MONIKER="PusulaFinans"
 GITOPIA_CHAIN_ID="gitopia-janus-testnet-2"
 ```
 
@@ -106,7 +86,7 @@ gitopiad version --long
 
 ## Başlatıyoruz:
 
-* Bir şey değiştirmenize gerek yok burada:
+* Bu kısımda bir işlem yapmanıza gerek yok!!
 
 ```
 gitopiad init --chain-id "$GITOPIA_CHAIN_ID" "$MONIKER"
@@ -125,7 +105,7 @@ SEEDS="399d4e19186577b04c23296c4f7ecc53e61080cb@seed.gitopia.com:26656"
 PEERS=""
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.gitopia/config/config.toml
 ```
-## Disk yerimizi azaltmak için Pruning yapıyoruz
+## Disk yerimizi azaltıyoruz;
 ```
 pruning="custom"
 pruning_keep_recent="100"
@@ -143,17 +123,17 @@ indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.gitopia/config/config.toml
 ```
 
-## Gaz ve ücretleri ayarlıyoruz:
+## Gaz ve ücretleri optimasyonu:
 ```
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0utlore\"/" $HOME/.gitopia/config/app.toml
 ```
 
-## Prometheus etkinleştiriyoruz
+## Prometheus etkinleştir:
 ```
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.gitopia/config/config.toml
 ```
 
-## SErvis dosyası oluşturuyoruz:
+## Servis dosyasını oluşturalım:
 ```
 sudo tee /etc/systemd/system/gitopiad.service > /dev/null <<EOF
 [Unit]
@@ -172,21 +152,18 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## Servis dosyamızı yetkilendirip nodu başlatıyoruz
-
- * Yeni başlayan arkadaşlara not:
- * journalctl'li olan son komutu girdiğinizde loglar akacaktır
- * ctrl + c ile logları durduğunuzda height kısmında bir sayı yazacaktır, örneğin: 205
- * Şu an güncel blok [explorerdan](https://gitopia.explorers.guru/) baktığımızda 201233
- * Buraya kadar eşleşmesini beklemeliyiz, burası uzun (belki bir kaç saat) sürebilir.
- * Az önce ctrl + c ile durdurduk, tekrar `sudo journalctl -u gitopiad -f -o cat` komutunu girerek bakabiliriz.
- * Ee.. hocam bu işlemi snapshot ve statesync ile hızlandıramaz mıyız? - Tonla hata veriyor, gerek yok bekleriz..
- 
+## Servis dosyasını yetkilendirip nodu başlatalım:
 
 ```
 apt install screen
-screen -S gitopia
+```
 
+```
+screen -S gitopia
+```
+
+## Kodları sırasıyla girelim:
+```
 sudo systemctl daemon-reload
 sudo systemctl enable gitopiad
 sudo systemctl restart gitopiad 
@@ -204,48 +181,42 @@ gitopiad status 2>&1 | jq .SyncInfo
 
 ## Cüzdan oluşturma: 
 
-* Rues yazan kısmı kendınız belirleyin
-* Cüzdan oluşturmadan önce isterseniz altta ki 2 komutu okuyun!!!
+* cüzdanismi yazan kısmı kendınız belirleyin
 
 ```
-gitopiad keys add Rues
+gitopiad keys add cüzdanismi
 ```
 
-## NOTU OKU! Cüzdan varsa mnomaniclerle kur:
-
- * Hocam benim cüzdanım var, onu kullanmak istiyorum:
- * Ana cüzdan kullanmayın sakın..
-
-```
-gitopiad keys add Rues --recover
-```
 
 ## Şimdi test tokeni alacağız
 
- * Bunun için faucet botu değil, Nisan ayında yaptığımız gibi platformdan alacağız:
- * [Platform linki](https://gitopia.com/home)
- * Burada yeni bir profil oluşturun keplr indirin, yukarıda kurduğunuz cüzdanın 12 kelimesini girin.
-
+ * Bunun için faucet botu değil, Platforma Keplr cüzdanı bağlayıp oradaki fauceti kullanacağız.
+### Keplr Cüzdan Kurulumu;
+ * Keplr wallet indirin ==> [burada](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap)
+ * Import existing account seçeneğine basın.
+ * Yukarıda oluşturduğunuz cüzdanının 12 ve 24 kelimesini buraya girip cüzdanı açın.
+  *Buradan platforma giderek Keplr cüzdanınızı bağlayın. [Platform linki](https://gitopia.com/home)
+ * Burada yeni bir profil oluşturun.
+ * TLORE tuşuna basarak test tokeni alın.
+ 
 ## Cüzdan bakiyenizi kontrol etmek için:
 
-* Cüzdan adrsinizi girin
+* Cüzdan adresinizi girin
 * Eğer nodunuz eşleşmediyse bu komutu girince balance 0 gözükür
-* Neden 0 gözükür? Çünkü nodunuz örneğin 500. bloktaysa, 500. bloğa kadar olan veriyi gösterir, blockchain'e hoş geldiniz.
 * Ama keplrda tokenler gözükür, çünkü o güncel bloktadır.
 
 ```
-gitopiad query bank balances CÜZDANADRESİ
+gitopiad query bank balances cüzdanadresi
 ```
 
-## Eee hocam nodumuz eşleşti, şimdi.. Validator oluşturmak için aşağıdaki komudu düzenle
-
+## Node eşleştiğinde validatorümüzü kuracağız.
+* Eşleşene kadar bekliyorsun!!
 * From yazan yere cüzdan adınız
-* Moniker yazan yere Validatör isminiz. (değişmesenizde yukarıda belirlediğimiz ismi koyar, ama test etmedim)
 
 ```
 gitopiad tx staking create-validator \
   --amount 1000000utlore \
-  --from RuesWallet \
+  --from cüzdanismi \
   --commission-max-change-rate "0.01" \
   --commission-max-rate "0.2" \
   --commission-rate "0.07" \
@@ -257,15 +228,9 @@ gitopiad tx staking create-validator \
 
 ## Validatore stake etmek için:
 
-* Komutu düzenleyin
-* Validatör adresi (valoper adresi)
-* Cüzdan adresi
-* Validatör adresi nerede bulunur? Operator veya valoper yazar.
-
-![image](https://user-images.githubusercontent.com/101149671/201474759-5924472c-5740-47c3-b80f-c11b9bf9a22a.png)
 
 ```
-gitopiad tx staking delegate <validatöradresi> 10000000utlore --from=RuesWalletAddress --chain-id=$GITOPIA_CHAIN_ID --gas=auto
+gitopiad tx staking delegate validatöradresi 10000000utlore --from=cüzdanadresi --chain-id=$GITOPIA_CHAIN_ID --gas=auto
 ```
 
 # Faydalı komutlar:
@@ -284,14 +249,14 @@ sed -i '/GITOPIA_/d' ~/.bash_profile
 
 ### Jailden çıkma:
 ```
-gitopiad tx slashing unjail --from Cüzdanİsmi --chain-id $GCHAIN_ID
+gitopiad tx slashing unjail --from cüzdanismi --chain-id $GCHAIN_ID
 ```
 
-### Aklıma komut geldikçe güncellerim..
 
 
 
-## Ödül mü?
+
+## Ödül:
 
 Okuyabilirsin: [Link](https://blog.gitopia.com/post/2022/11/the-janus-testnet-upgrade/index.html)
 
