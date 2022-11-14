@@ -211,7 +211,8 @@ gitopiad query bank balances cüzdanadresi
 
 ## Node eşleştiğinde validatorümüzü kuracağız.
 * Eşleşene kadar bekliyorsun!!
-* From yazan yere cüzdan adınız
+* from cüzdanismi yazan yere, cüzdan adınız giriniz.
+* Validatorismi yazan yere yukarıda belirlediğiniz validator isminizi yazın.
 
 ```
 gitopiad tx staking create-validator \
@@ -222,7 +223,7 @@ gitopiad tx staking create-validator \
   --commission-rate "0.07" \
   --min-self-delegation "1" \
   --pubkey  $(gitopiad tendermint show-validator) \
-  --moniker $MONIKER \
+  --moniker Validatorismi \
   --chain-id gitopia-janus-testnet-2
 ```
 
